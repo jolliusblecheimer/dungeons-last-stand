@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0] — 2026-04-05
+- Map system: dynamic map switching based on wave progression
+- Graveyard map (waves 11-20): grey-green stone, fog overlay, gravestones, dead trees, green torches
+- Hell Fortress map (waves 21+): obsidian walls, lava hazard pools (damage players & enemies), fire braziers, pillars, altars, skull piles
+- Dodge roll (Spacebar): 300ms dash with invincibility, 800ms cooldown, particle trail, blue cooldown HUD arc
+- Enemy size variants: small/normal/large goblins and skeletons with scaled HP, ATK, sprites, and collision
+- Elite Necromancer (wave 15+): larger sprite, golden crown, brighter aura, spawns large skeletons
+
 ## [0.6.0] — 2026-04-05
 - Mage AOE nerfed, difficulty rebalanced
 - Boss redrawn, more henchmen per phase
