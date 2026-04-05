@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1] — 2026-04-05
+- Line-of-sight system: enemies slow down and stop attacking when player is behind walls
+- Player auto-targeting now skips enemies behind walls
+- Boss ranged attacks blocked by walls
+- Internal walls rendered with stronger contrast (darker shadow, edge highlights)
+- Throwing Axe projectile now renders as a spinning axe sprite instead of a dot
+
 ## [0.8.0] — 2026-04-05
 - Bigger maps: canvas enlarged from 700x520 to 960x640
 - Collision map system: internal walls create corridors and rooms per biome
