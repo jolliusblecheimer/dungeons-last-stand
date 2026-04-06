@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.10.0] — 2026-04-06
+- Camera system: viewport (960x640) follows player across larger world (1600x1000)
+- Maps are now much bigger — open rooms connected by wide corridors, no internal walls
+- Dungeon: main hall + east wing + south corridor
+- Graveyard: main grounds + eastern crypt + southern tombs
+- Hell Fortress: main chamber + demon pit + lower depths
+- Dormant room enemies visible at 35% opacity, activate when player enters the room area
+- Player spawns in main room, must explore to find and clear all enemies
+- Vignette and wave banner render in screen-space, world renders with camera offset
+- Fixed wall-stuck glitch with larger boundary margins
+
 ## [0.9.0] — 2026-04-06
 - Fixed wall-stuck glitch: increased boundary margin, improved recovery to find nearest walkable tile
 - Multi-room dungeon layouts for all 3 maps:
