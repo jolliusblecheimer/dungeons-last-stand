@@ -21,6 +21,7 @@ Diagonal movement is normalized (0.707x multiplier) so you do not move faster di
 | Spacebar | Dodge roll | 800ms |
 | Shift | Knockback push | 3s |
 | Scroll Wheel | Switch weapon slot | None |
+| Q | Class ability (Shield Bash / Trap / Blink) | 5s |
 
 ## Auto-Fire Targeting
 

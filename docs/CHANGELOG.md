@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.0] — 2026-04-06
+- Lava pools now only appear in Hell Fortress (removed from frozen/abyss)
+- All AOE weapon ranges buffed: Magic Staff 90→120, Fireball 105→140, Ice Shard 120→150, Chain Lightning 120→160, Void Blast 85→120, Arcane Bolt 145→180
+- Black hole buffed: radius 120→180px, duration 2→2.5s, DPS 5→8
+- Class-specific Q abilities: Knight Shield Bash (cone stun), Ranger Trap (caltrops slow), Mage Blink (teleport)
+- Each map has unique dungeon layout (different room shapes and corridors)
+- Boss revive particles now match boss color theme (green for Lich, blue for Ice Titan, etc.)
+- Enemy skins tinted per biome (goblins/skeletons change color per map)
+
 ## [1.0.0] — 2026-04-06
 - New map every 5 waves — 6 unique biomes total
 - Waves 1-5: Dungeon (The Reaper boss)
