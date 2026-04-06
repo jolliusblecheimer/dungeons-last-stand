@@ -137,11 +137,14 @@ Where `w` = current wave number.
 
 Bosses appear every 5 waves.
 
-| Boss | Waves | Base HP | HP Scaling | Base ATK | ATK Scaling |
-|------|-------|---------|------------|----------|-------------|
-| The Reaper | 1-10 | 2200 | +180/wave | 25 | +3/wave |
-| Lich King | 11-20 | 2800 | +200/wave | 20 | +2.5/wave |
-| The Infernal | 21+ | 3500 | +220/wave | 30 | +3/wave |
+| Boss | Waves | Map | Base HP | HP Scaling | Base ATK | ATK Scaling |
+|------|-------|-----|---------|------------|----------|-------------|
+| The Reaper | 1-5 | Dungeon | 2200 | +180/wave | 25 | +3/wave |
+| Lich King | 6-10 | Graveyard | 2800 | +200/wave | 20 | +2.5/wave |
+| The Infernal | 11-15 | Hell Fortress | 3500 | +220/wave | 30 | +3/wave |
+| Ice Titan | 16-20 | Frozen Caverns | 4000 | +240/wave | 28 | +3.5/wave |
+| The Kraken | 21-25 | Abyssal Depths | 4500 | +260/wave | 32 | +3/wave |
+| Storm Lord | 26+ | Sky Fortress | 5000 | +280/wave | 35 | +4/wave |
 
 ### Boss Phase System
 

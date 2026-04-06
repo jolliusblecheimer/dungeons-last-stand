@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.0] — 2026-04-06
+- New map every 5 waves — 6 unique biomes total
+- Waves 1-5: Dungeon (The Reaper boss)
+- Waves 6-10: Graveyard (Lich King boss)
+- Waves 11-15: Hell Fortress (The Infernal boss)
+- Waves 16-20: Frozen Caverns — ice blue tiles, frost fog, ice hazards (Ice Titan boss)
+- Waves 21-25: Abyssal Depths — dark ocean floor, bioluminescent glow, water hazards (Kraken boss)
+- Waves 26+: Sky Fortress — golden stone, bright torches, royal rug (Storm Lord boss)
+- Ice Titan: frost barrage + radial ice ring at phase 2+
+- Kraken: scattered spray + homing tentacles at phase 2+, random bursts at phase 3+
+- Storm Lord: spinning lightning wheel + focused beam at phase 2+
+- Each boss has unique HP/ATK scaling and projectile colors
+
 ## [0.10.0] — 2026-04-06
 - Camera system: viewport (960x640) follows player across larger world (1600x1000)
 - Maps are now much bigger — open rooms connected by wide corridors, no internal walls
