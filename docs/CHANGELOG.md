@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.2] — 2026-04-06
+- 2-second invincibility shield at wave start (flicker effect while active)
+- Knockback ability (Shift key): pushes nearby enemies away + 0.4s stun, 3s cooldown, red HUD arc
+- Reduced mob counts per wave (~30% fewer enemies, shorter waves)
+- Goblin formula: (3+w×1.4)×0.5 (was (4+w×2)×0.55)
+- Necromancer: w/4 (was w/3), Orc: w/5 (was w/4), Troll: w/8 (was w/6)
+
 ## [0.8.1] — 2026-04-05
 - Line-of-sight system: enemies slow down and stop attacking when player is behind walls
 - Player auto-targeting now skips enemies behind walls
