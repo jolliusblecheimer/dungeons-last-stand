@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.0] — 2026-04-06
+- Fixed wall-stuck glitch: increased boundary margin, improved recovery to find nearest walkable tile
+- Multi-room dungeon layouts for all 3 maps:
+  - Dungeon: main hall + east side room (doorway at rows 9-10)
+  - Graveyard: north grounds + southern crypt (doorway at cols 14-15)
+  - Hell Fortress: main chamber + demon pit (doorway at rows 8-9, 12-13), lava rivers in doorway walls
+- Room activation system: enemies in side rooms are dormant (35% opacity, no AI) until player enters
+- Entering a room triggers all its enemies with screen shake + sound
+- Must clear all rooms to complete a wave (exploration required)
+- Enemies spawn distributed across rooms via pickRoom()
+
 ## [0.8.2] — 2026-04-06
 - 2-second invincibility shield at wave start (flicker effect while active)
 - Knockback ability (Shift key): pushes nearby enemies away + 0.4s stun, 3s cooldown, red HUD arc
