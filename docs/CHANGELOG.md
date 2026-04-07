@@ -1,5 +1,58 @@
 # Changelog
 
+## [1.3.0] — 2026-04-07
+
+### Boss Reworks
+- The Reaper: now melee-only (no ranged attacks), relies on speed + henchmen
+- Lich King: soul bolts no longer home, flat 25 damage per bolt
+- The Infernal: 3 huge slow fireballs (Phase 2+), 7-projectile fire cone (Phase 3+), forced attacks on phase transition
+- Ice Titan: new ice spike ground attack (Phase 2+) with 0.6s warning
+- The Kraken: swims in water only, breaks piers in 2x2 blocks, tentacles burst through floor
+- Storm Lord: unchanged
+
+### Kraken Boss Fight
+- Kraken moves exclusively in water, bypasses LOS checks
+- Abyssal Depths reworked: pier/raft network over deadly ocean with wooden plank tiles
+- Phase 2+: Kraken smashes adjacent pier tiles (1.5s cooldown, 2x2 blocks)
+- Phase 2+: Tentacles erupt through piers near player (1.5s warning, break tile, 20+wave*2 dmg)
+- Henchmen are pirates with red bandana, eye patch, cutlass — arrive via pirate ship animation
+- Player receives Harpoon weapon (ATK 120, range 800, 2.5x bonus vs Kraken)
+- Kraken has 0 revives, Phase 2 triggers at 90% HP, immune to knockback
+- Kraken collision radius 40px (larger hitbox)
+
+### Ice Titan Map
+- Frozen Caverns reworked: circular ice arena surrounded by deadly sea
+- Walk off the edge = death
+- Animated wave particles around arena boundary
+
+### All Bosses
+- 1 second invincibility on each phase transition (visual shield indicator)
+- Sequential phase transitions only (no skipping)
+- Phase transition particles now use boss-specific colors
+- Revive animation now uses correct boss sprite (was using Reaper for all)
+- Henchmen colored to match their boss theme
+- Storm Lord henchmen are gold golems; Kraken henchmen are pirates
+
+### Gameplay
+- Click-to-target system: click an enemy to lock on, crosshair (Fadenkreuz) displayed
+- X key: switch target to nearest enemy
+- Target persists until enemy dies or manually switched
+- Click weapon slots in HUD to switch weapons
+- Harpoon weapon auto-equipped during Kraken fight (removed after)
+
+### Dev Mode
+- Dev Mode button on class select screen (code: 939493)
+- Keys 1-6 jump to boss waves (5/10/15/20/25/30)
+- O key: go back one wave, P key: skip forward one wave
+- 10000 HP in dev mode wave jumps
+
+### Audio
+- Complete soundtrack rewrite: EDM/trance style inspired by Sandstorm/Erlkönig
+- 16th-note detuned sawtooth riff, triplet arpeggios, four-on-the-floor kicks
+- Boss phases add layers: P2+ countermelody, P3+ harmony, P4 offbeat fills
+- DynamicsCompressor prevents clipping
+- Phase transitions no longer restart music (seamless transition)
+
 ## [1.2.0] — 2026-04-07
 - Boss phase thresholds changed: P2 at 85%, P3 at 70% (was 65%), P4 at 55% (was 40%)
 - The Infernal reworked: fireball barrage now starts at Phase 2, fire breath cone at Phase 3
