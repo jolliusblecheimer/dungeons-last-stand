@@ -148,22 +148,22 @@ Bosses appear every 5 waves.
 
 ### Boss Phase System
 
-Phases trigger at HP thresholds: 85%, 65%, 40%.
+Phases trigger at HP thresholds: 85%, 70%, 55%.
 
 | Phase | Henchman Count | Spawn Cooldown | Speed Mult | Attack Cooldown |
 |-------|----------------|----------------|------------|-----------------|
 | Phase 1 (100-85%) | -- | -- | 1.0x | 1600ms |
-| Phase 2 (85-65%) | 2 | 4500ms | 1.4x | 1300ms |
-| Phase 3 (65-40%) | 3 | 2800ms | 1.8x | 1000ms |
-| Phase 4 (below 40%) | 4 | 1800ms | 2.2x | 700ms |
+| Phase 2 (85-70%) | 2 | 4500ms | 1.4x | 1300ms |
+| Phase 3 (70-55%) | 3 | 2800ms | 1.8x | 1000ms |
+| Phase 4 (below 55%) | 4 | 1800ms | 2.2x | 700ms |
 
 ### Boss Attack Patterns
 
-| Boss | Pattern | Phase 2+ Bonus |
-|------|---------|----------------|
+| Boss | Pattern | Phase Bonuses |
+|------|---------|---------------|
 | The Reaper | 3 + phase*3 projectiles in spread | Phase 3+: 3 rear-facing projectiles (0.7x ATK) |
 | Lich King | 2 + phase*2 homing soul bolts | Phase 2+: 40% chance to summon 2+ skeletons |
-| The Infernal | 4 + phase*3 fireball spread | Phase 2+: 3 fire breath projectiles (0.5x ATK) |
+| The Infernal | Phase 1: single fireball; Phase 2+: 4+phase*3 fireball barrage | Phase 3+: 3 fire breath cone (0.5x ATK); Phase 4: lava pools spawn on floor |
 
 ### Secret Revive Mechanic
 
@@ -269,3 +269,12 @@ Powerups despawn after 700 frames.
 |--------|--------|
 | Player | 8 HP/s |
 | Enemies | 4 HP/s |
+
+### Infernal Lava Pools (Phase 4)
+
+- Spawned every 2.5s during The Infernal's Phase 4
+- 2 pools per spawn cycle
+- Each pool lasts 8 seconds, size 40-60px
+- Deals 12 HP/s to player on contact
+- Pools cannot spawn on walls (validated against collision map)
+- Cleared when a new wave starts

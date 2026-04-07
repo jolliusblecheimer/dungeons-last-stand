@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0] — 2026-04-07
+- Boss phase thresholds changed: P2 at 85%, P3 at 70% (was 65%), P4 at 55% (was 40%)
+- The Infernal reworked: fireball barrage now starts at Phase 2, fire breath cone at Phase 3
+- The Infernal Phase 1 now fires a single fireball instead of a full barrage
+- New mechanic: lava pools spawn on the floor during The Infernal's Phase 4
+- Lava pools deal 12 HP/s, last 8s, and cannot spawn on walls
+
 ## [1.1.0] — 2026-04-06
 - Lava pools now only appear in Hell Fortress (removed from frozen/abyss)
 - All AOE weapon ranges buffed: Magic Staff 90→120, Fireball 105→140, Ice Shard 120→150, Chain Lightning 120→160, Void Blast 85→120, Arcane Bolt 145→180
