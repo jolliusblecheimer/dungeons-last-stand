@@ -33,6 +33,7 @@ All stats, formulas, and scaling data for Dungeon's Last Stand.
 | Throwing Axe | 38 | 168 | 600 | Spinning axe sprite |
 | Repeater | 14 | 198 | 185 | Fastest ranged weapon |
 | Poison Arrow | 22 | 235 | 420 | Balanced |
+| Harpoon | 120 | 800 | 500 | Kraken fight only; 2.5x vs Kraken |
 
 ### AoE Weapons
 
@@ -148,7 +149,10 @@ Bosses appear every 5 waves.
 
 ### Boss Phase System
 
-Phases trigger at HP thresholds: 85%, 70%, 55%.
+Phases trigger at HP thresholds: 85%, 70%, 55% (Kraken: 90%, 70%, 55%).
+
+All bosses gain 1 second of invincibility on each phase transition.
+Phases step up sequentially (no skipping).
 
 | Phase | Henchman Count | Spawn Cooldown | Speed Mult | Attack Cooldown |
 |-------|----------------|----------------|------------|-----------------|
@@ -157,13 +161,56 @@ Phases trigger at HP thresholds: 85%, 70%, 55%.
 | Phase 3 (70-55%) | 3 | 2800ms | 1.8x | 1000ms |
 | Phase 4 (below 55%) | 4 | 1800ms | 2.2x | 700ms |
 
+Kraken henchman counts are reduced: P1-P3=1, P4=2.
+
 ### Boss Attack Patterns
 
 | Boss | Pattern | Phase Bonuses |
 |------|---------|---------------|
-| The Reaper | 3 + phase*3 projectiles in spread | Phase 3+: 3 rear-facing projectiles (0.7x ATK) |
-| Lich King | 2 + phase*2 homing soul bolts | Phase 2+: 40% chance to summon 2+ skeletons |
-| The Infernal | Phase 1: single fireball; Phase 2+: 4+phase*3 fireball barrage | Phase 3+: 3 fire breath cone (0.5x ATK); Phase 4: lava pools spawn on floor |
+| The Reaper | Melee only (no ranged) | Speed + henchmen scale with phase |
+| Lich King | 2 + phase*2 soul bolts (flat 25 dmg, no homing) | Phase 3+: 40% chance to summon 2+ skeletons |
+| The Infernal | Phase 1: single fireball; Phase 2+: 3 huge slow fireballs (speed 1.2) | Phase 3+: 7-projectile fire cone (0.25x ATK); Phase 4: lava pools |
+| Ice Titan | 3 + phase*2 frost bolts | Phase 3+: 8-way radial ice ring (0.4x ATK); Phase 2+: ice spikes from ground |
+| The Kraken | 5 + phase*2 spray (flat 5 dmg); swims in water only | Phase 2+: pier breaking + tentacles through floor; Phase 3+: homing spray |
+| Storm Lord | 4 + phase*3 spinning lightning wheel | Phase 3+: 5 focused beam (0.7x ATK, white) |
+
+### Boss-Specific Mechanics
+
+#### The Infernal (Phase 2+ forced attacks)
+- On phase transition, immediately fires the newly unlocked attack
+- Fireballs use "huge" size tier (28px, layered glow, 30px hitbox)
+- Fire cone: wide spread, low damage, big projectiles
+
+#### Ice Titan (Ice Spikes — Phase 2+)
+- Ice spikes erupt from ground near the player
+- 0.6s warning indicator (glowing blue square) before eruption
+- Burst damage: 18 + wave*2 per spike
+- Count/cooldown scales: P2=2/2.5s, P3=3/1.8s, P4=4/1.2s
+- Frozen Caverns is a circular ice arena surrounded by deadly sea
+
+#### The Kraken (Water Boss)
+- Moves exclusively in water (blocked tiles), cannot go on land
+- Spawns in the ocean, bypasses LOS checks
+- No melee attack (in the water)
+- Phase 2+: smashes pier tiles in 2x2 blocks (1.5s cooldown)
+- Phase 2+: tentacles burst through pier near player (1.5s warning, break tile on eruption)
+- Tentacle damage: 20 + wave*2 per hit
+- Henchmen arrive via pirate ship animation (sail in, dock, deploy pirates)
+- Player receives Harpoon weapon during Kraken fight (ATK 120, range 800, 2.5x vs Kraken)
+- Immune to knockback
+- Collision radius: 40px (larger hitbox)
+- Abyssal Depths is a pier/raft network over deadly ocean
+
+### Henchmen Variants
+
+| Boss | Henchman Type | Visual |
+|------|---------------|--------|
+| The Reaper | Red minions | Standard |
+| Lich King | Skeletons (incl. large) | Green-tinted |
+| The Infernal | Orange minions | Fire-themed |
+| Ice Titan | Blue minions | Ice-themed |
+| The Kraken | Pirates | Red bandana, cutlass, eye patch; arrive by ship |
+| Storm Lord | Gold golems | Blocky body, thick arms |
 
 ### Secret Revive Mechanic
 
@@ -171,6 +218,7 @@ Phases trigger at HP thresholds: 85%, 70%, 55%.
 - Boss explodes on death, then revives after 4 seconds
 - Revive grants: +50% max HP, +40% ATK, +20% speed
 - Lives: wave 5-9 = 1 revive, wave 10+ = 2 revives
+- **Kraken: 0 revives (no rebirth)**
 - Boss resets to Phase 1 after revive
 
 ## Class Upgrade Values
