@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><title>Frozen Caverns - Map Preview</title><style>body{background:#0a0806;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;font-family:monospace;color:#aaddee;}canvas{border:2px solid #44aaff;}</style></head><body><div style="text-align:center"><h2 style="color:#44ccff">Frozen Caverns - Circular Sea Arena</h2><canvas id="c" width="800" height="500"></canvas><p>Blue circle = walkable ice floor. Dark area = deep sea (instant death).</p></div><script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const W=800,H=500,TILE=16,COLS=Math.ceil(W/TILE)+1,ROWS=Math.ceil(H/TILE)+1;
+const floorCols=['#c8dce8','#b8ccd8','#d0e4f0','#bcd0dc'];
+const seaCols=['#0a1828','#0c1a2c','#081420','#0e1c30'];
+const cx=Math.floor(COLS/2),cy=Math.floor(ROWS/2),rad=14;
+// Build collision map
+const colMap=[];
+for(let r=0;r<ROWS;r++){colMap[r]=[];for(let c=0;c<COLS;c++){const dx=c-cx,dy=r-cy;colMap[r][c]=Math.sqrt(dx*dx+dy*dy)<=rad?0:1;}}
+// Draw tiles
+for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){if(colMap[r][c]===1){ctx.fillStyle=seaCols[(r+c)%4];ctx.fillRect(c*TILE,r*TILE,TILE,TILE);ctx.fillStyle='rgba(30,80,140,'+(0.15+((r*7+c*13)%10)*0.02)+')';ctx.fillRect(c*TILE,r*TILE+(((r+c)%3)*4),TILE,2);ctx.fillStyle='rgba(0,0,0,0.3)';ctx.fillRect(c*TILE,r*TILE,TILE,TILE);}else{ctx.fillStyle=floorCols[(r+c)%4];ctx.fillRect(c*TILE,r*TILE,TILE,TILE);ctx.fillStyle='#a0b8c8';for(let y=0;y<TILE;y+=8)ctx.fillRect(c*TILE,r*TILE+y,TILE,1);}}
+// Edge glow
+ctx.strokeStyle='rgba(80,180,255,0.5)';ctx.lineWidth=3;ctx.beginPath();ctx.arc(cx*TILE+TILE/2,cy*TILE+TILE/2,rad*TILE,0,Math.PI*2);ctx.stroke();
+ctx.strokeStyle='rgba(40,100,200,0.25)';ctx.lineWidth=6;ctx.beginPath();ctx.arc(cx*TILE+TILE/2,cy*TILE+TILE/2,(rad+0.5)*TILE,0,Math.PI*2);ctx.stroke();
+// Labels
+ctx.fillStyle='#44ccff';ctx.font='bold 14px monospace';ctx.textAlign='center';
+ctx.fillText('ICE FLOOR',cx*TILE,cy*TILE);
+ctx.fillStyle='#2255aa';ctx.fillText('DEEP SEA',40,30);
+ctx.fillText('DEEP SEA',W-60,30);
+ctx.fillText('DEEP SEA',40,H-20);
+ctx.fillText('DEEP SEA',W-60,H-20);
+// Player spawn marker
+ctx.fillStyle='rgba(255,255,100,0.7)';ctx.beginPath();ctx.arc(cx*TILE+TILE/2,cy*TILE+TILE/2+20,6,0,Math.PI*2);ctx.fill();
+ctx.fillStyle='#ffee44';ctx.font='10px monospace';ctx.fillText('SPAWN',cx*TILE,cy*TILE+40);
+</script></body></html>
