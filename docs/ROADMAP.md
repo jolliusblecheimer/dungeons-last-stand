@@ -46,6 +46,34 @@ Future planned features and ideas for Dungeon's Last Stand.
 - **Mana Barrier**: Absorb damage using a mana resource pool
 - **Arcane Nova**: Channeled AoE that grows in radius over time
 
+## Account System Enhancements
+
+- Server-side account storage for true cross-platform sync
+- Password hashing (currently plaintext in localStorage)
+- Email verification and password reset
+- OAuth login (Google, Discord, GitHub)
+- Cloud save with conflict resolution
+- Account profile with avatar and title customization
+
+## Shop System
+
+The shop tab is in place but empty. Planned features:
+
+- Cosmetic skins for each class
+- Weapon skins and visual effects
+- Title/badge unlocks
+- Coin-based purchases from in-game earnings
+- Seasonal/limited-time items
+
+## Additional Game Modes
+
+The menu system is designed to support multiple modes:
+
+- **Endless Mode**: Current wave-based survival, no cap
+- **Arena Mode**: Timed rounds, leaderboard scoring
+- **Boss Rush**: Fight bosses back-to-back with limited upgrades
+- **Daily Challenge**: Fixed seed, compete for best score
+
 ## Multiplayer / Co-op
 
 - WebSocket-based 2-player co-op (stretch goal)
@@ -53,6 +81,7 @@ Future planned features and ideas for Dungeon's Last Stand.
 - Revive mechanic for downed partner
 - Shared upgrade pool or alternating picks
 - Boss HP scaled to player count
+- Friend list integration for easy party creation
 
 ### Challenges
 - Synchronizing game state over network
@@ -86,7 +115,7 @@ Touch controls for mobile browser play:
 ### Inventory / Loadout
 - Pre-game weapon selection screen
 - Weapon unlock progression across runs
-- Persistent stats (best wave, total kills, class playtime)
+- Persistent stats (best wave, total kills, class playtime) — **partially done via account system**
 
 ### HUD Enhancements
 - Damage numbers floating above enemies on hit

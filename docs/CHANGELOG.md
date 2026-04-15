@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.0.0] — 2026-04-15
+
+### Home Screen & Menu System
+- New home screen with title and PLAY button as the first screen
+- Main menu with tabbed navigation: Play, Shop, Social
+- Play tab shows player stats (best wave, total kills, coins, games played)
+- Class selection screen now accessed from Play tab via "Enter the Dungeon"
+- "Rise Again" after death returns to main menu instead of reloading
+
+### Account System
+- Register/login with username and password (localStorage-based)
+- Guest mode available for quick play without an account
+- Session persistence — returning players are auto-logged in
+- Per-account progress tracking: best wave, total kills, coins, games played
+- Progress saves automatically when a run ends
+- Structured for future server-side sync for cross-platform play
+
+### Shop Tab
+- Placeholder tab for future shop functionality
+- "Coming Soon" display
+
+### Social Tab
+- Friend list system — add and remove friends by username
+- Friends stored per-account (not available in guest mode)
+- Prepared for future multiplayer and social features
+
+### Gameplay Tweaks
+- Hero movement speed increased for all classes (Knight 1.9→3.2, Ranger 3.1→4.5, Mage 2.4→3.8)
+- Dash/dodge range fixed: duration increased from 200ms to 500ms with matching invincibility
+
+### Code Backup
+- Pre-2.0 code preserved in index.backup.html
+
 ## [1.3.0] — 2026-04-07
 
 ### Boss Reworks

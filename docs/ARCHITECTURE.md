@@ -6,12 +6,72 @@ Technical overview of the Dungeon's Last Stand codebase.
 
 The entire game lives in a single `index.html` file with no external dependencies. This includes:
 
-- HTML structure (class selection, HUD, upgrade screen, game over overlay)
+- HTML structure (home screen, account system, main menu, class selection, HUD, upgrade screen, game over overlay)
 - CSS styles (inline `<style>` block)
 - JavaScript game engine (inline `<script>` block)
 - All game data (weapons, enemies, maps, upgrades, masteries)
+- Account system and progress persistence (localStorage-based)
 
 No build tools, bundlers, or package managers are needed. The game runs by opening the HTML file in a browser.
+
+## Screen Flow
+
+The game follows this navigation flow:
+
+```
+Home Screen → Account (Login/Register/Guest) → Main Menu → Class Select → Game
+                                                  ↑                         ↓
+                                                  ← ← ← Game Over ← ← ← ←
+```
+
+### Screens
+
+| Screen | ID | Purpose |
+|--------|----|---------|
+| Home Screen | `#homescreen` | Title screen with PLAY button |
+| Account Screen | `#account-screen` | Login, register, or guest access |
+| Main Menu | `#main-menu` | Tabbed menu: Play, Shop, Social |
+| Class Selection | `#overlay` | Choose class before entering game |
+| Game HUD | `#hud` | In-game stats and weapon slots |
+| Upgrade Screen | `#upgrade-screen` | Post-wave reward selection |
+| Game Over | `#gameover` | Death screen with stats |
+
+## Account System (DLS Object)
+
+The `DLS` global object manages accounts, progress, and friends:
+
+| Method | Description |
+|--------|-------------|
+| `DLS.register(user, pass)` | Create new account |
+| `DLS.login(user, pass)` | Login to existing account |
+| `DLS.guest()` | Play without account |
+| `DLS.logout()` | End session |
+| `DLS.saveProgress(wave, kills, coins)` | Save run results to account |
+| `DLS.getProgress()` | Get account stats (bestWave, totalKills, coins, gamesPlayed) |
+| `DLS.addFriend(name)` | Add friend by username |
+| `DLS.removeFriend(name)` | Remove friend |
+| `DLS.restoreSession()` | Auto-login from saved session |
+
+### Storage Structure
+
+Accounts are stored in `localStorage` under key `dls_accounts`:
+
+```json
+{
+  "username": {
+    "pass": "password",
+    "progress": {
+      "bestWave": 15,
+      "totalKills": 342,
+      "coins": 50,
+      "gamesPlayed": 8
+    },
+    "friends": ["otheruser"]
+  }
+}
+```
+
+Session persistence uses `dls_session` key. Guest mode falls back to `dls_coins` for coin tracking.
 
 ## Global State: The G Object
 
